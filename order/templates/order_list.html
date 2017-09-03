@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Description</th>
+        <th>To Address</th>
+        <th>From Address</th>
+    </tr>
+    {% for object in object_list %}
+        <tr>
+            <td>{{object.description</td>
+            <td>{{object.to_address</td>
+            <td>{{object.from_address</td>
+        </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}

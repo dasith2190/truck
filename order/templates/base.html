@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+    .navbar-inverse {
+        background-color: #13744a;
+        border-color: #13744a;
+    }
+
+    .navbar-inverse .navbar-nav>li>a {
+      color: white;
+    }
+</style>
+{% block navbar %}
+<nav class="navbar navbar-inverse">
+  <div class=" container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="active" href="#">My Orders</a></li>
+      <li><a class="" href="#">My Bids</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if request.user %}
+      <li><a href="{% url 'logout' %}?next=/"><span class="glyphicon glyphicon-log-out"></span> Logout</a> </li>
+      {% else %}
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+
+<div class=" container">
+    {% block content %}
+    {% endblock %}
+</div>
