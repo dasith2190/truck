@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table>
+
+<a href="{% url 'order_create' %}" class="btn btn-primary">New Order</a>
+<table class="table">
     <tr>
         <th>Description</th>
         <th>To Address</th>
@@ -9,9 +11,9 @@
     </tr>
     {% for object in object_list %}
         <tr>
-            <td>{{object.description</td>
-            <td>{{object.to_address</td>
-            <td>{{object.from_address</td>
+            <td>{{object.description}}</td>
+            <td>{{object.to_address}}</td>
+            <td>{{object.from_address}}</td>
         </tr>
 
     {% endfor %}

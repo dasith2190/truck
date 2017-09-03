@@ -36,7 +36,8 @@ urlpatterns = [
     ), name='register'),
     url(r'^bid/create/(?P<pk>[0-9]+)/$', bid_create, name='bid_create'),
 
-    url('^order/create/$', login_required(GenericCreate.as_view(template_name = 'generic/generic_create.html', model=Order, form_class=OrderForm)), name='order_create'),
+    url('^order/create/$', login_required(GenericCreate.as_view(template_name = 'generic/generic_create.html',
+                                                                model=Order, form_class=OrderForm)), name='order_create'),
     url('^order/list/$', login_required(GenericList.as_view(template_name = 'order_list.html', model=Order)), name='order_list'),
     url('^order/detail/(?P<pk>[0-9]+)/$', (GenericDetail.as_view(template_name = 'order_detail.html', model=Order)), name='order_detail'),
 

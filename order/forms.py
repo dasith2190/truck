@@ -5,11 +5,10 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = '__all__'
+        exclude = ['user', ]
 
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
-        self.fields['user'].widget = forms.HiddenInput()
 
 
 class OrderDetailsForm(forms.ModelForm):
