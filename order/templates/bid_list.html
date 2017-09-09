@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <tr>
+        <th>Order</th>
+        <th>Bid Amount</th>
+        <th>Action</th>
+    </tr>
+    {% for object in object_list %}
+        <tr>
+            <td>{{object.order}}</td>
+            <td>{{object.amount}}</td>
+            <td> <a href="{% url 'order_detail' object.order_id %}">Details</a> </td>
+        </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}

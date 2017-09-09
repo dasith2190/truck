@@ -6,9 +6,7 @@ from django.http import *
 class GenericCreate(CreateView):
     def form_valid(self, form):
         model_inst = form.save(commit=False)
-        print("#############")
         if resolve(self.request.path_info).url_name == 'order_create':
-            print("@@@@@@@@@@@@@@")
             model_inst.user = self.request.user
         model_inst.save()
         return HttpResponseRedirect(self.get_success_url())
@@ -27,8 +25,9 @@ class GenericList(ListView):
 
     def get_queryset(self):
         qs = super(GenericList, self).get_queryset()
-        if resolve(self.request.path_info).url_name == 'order_list':
-
+        if resolve(self.request.path_info).url_name in  [ 'order_list', 'bid_list' ]:
+            print(qs[0].user)
+            print(self.request.user)
             qs = qs.filter(user = self.request.user)
             print(qs)
         return qs
@@ -46,6 +45,5 @@ class GenericDetail(DetailView):
         context = super(GenericDetail, self).get_context_data(**kwargs)
 
         if resolve(self.request.path_info).url_name == 'order_detail':
-            print(context)
-            context['bids'] = Bids.objects.filter()
+            context['bids'] = Bids.objects.filter(order=kwargs['object'])
         return context

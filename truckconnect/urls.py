@@ -41,4 +41,6 @@ urlpatterns = [
     url('^order/list/$', login_required(GenericList.as_view(template_name = 'order_list.html', model=Order)), name='order_list'),
     url('^order/detail/(?P<pk>[0-9]+)/$', (GenericDetail.as_view(template_name = 'order_detail.html', model=Order)), name='order_detail'),
 
+    url('^bid/list/$', login_required(GenericList.as_view(template_name = 'bid_list.html', model=Bids)), name='bid_list'),
+
 ]

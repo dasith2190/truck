@@ -6,7 +6,6 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def bid_create(request, pk):
-    request.user = User.objects.get(pk=1)
     bid = request.POST.get('amount')
     try:
         user_bid = Bids.objects.get(user=request.user, order_id=pk)

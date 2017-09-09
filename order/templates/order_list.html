@@ -8,12 +8,14 @@
         <th>Description</th>
         <th>To Address</th>
         <th>From Address</th>
+        <th>Action</th>
     </tr>
     {% for object in object_list %}
         <tr>
             <td>{{object.description}}</td>
             <td>{{object.to_address}}</td>
             <td>{{object.from_address}}</td>
+            <td> <a href="{% url 'order_detail' object.pk %}">Details</a> </td>
         </tr>
 
     {% endfor %}

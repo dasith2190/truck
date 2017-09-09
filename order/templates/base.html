@@ -21,7 +21,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a class="active" href="{% url 'order_list' %}">My Orders</a></li>
-      <li><a class="" href="#">My Bids</a></li>
+      <li><a class="" href="{% url 'bid_list' %}">My Bids</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       {% if request.user %}
